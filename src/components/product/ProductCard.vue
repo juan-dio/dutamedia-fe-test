@@ -113,7 +113,7 @@ onMounted(() => {
           :to="`/product/${product.id}`"
           class="block w-full text-center py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition"
         >
-          Lihat Detail
+          View Details
         </router-link>
       </div>
     </div>

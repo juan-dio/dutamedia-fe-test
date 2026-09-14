@@ -39,8 +39,8 @@ onMounted(async () => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header Title -->
     <div class="mb-8">
-      <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Katalog Produk</h1>
-      <p class="mt-2 text-sm text-gray-600">Temukan berbagai produk berkualitas pilihan kami.</p>
+      <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Product Catalog</h1>
+      <p class="mt-2 text-sm text-gray-600">Discover our curated selection of quality products.</p>
     </div>
 
     <!-- Filter & Search Bar -->
@@ -59,7 +59,7 @@ onMounted(async () => {
           @update:model-value="setCategory"
         />
         <span class="text-sm text-gray-500 whitespace-nowrap">
-          Total: <strong class="text-gray-900">{{ total }}</strong> produk
+          Total: <strong class="text-gray-900">{{ total }}</strong> products
         </span>
       </div>
     </div>
@@ -81,13 +81,13 @@ onMounted(async () => {
       <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
       </svg>
-      <h3 class="text-lg font-medium text-gray-900 mb-1">Tidak ada produk ditemukan</h3>
-      <p class="text-sm text-gray-500 mb-4">Coba ubah kata kunci pencarian atau kategori filter Anda.</p>
+      <h3 class="text-lg font-medium text-gray-900 mb-1">No products found</h3>
+      <p class="text-sm text-gray-500 mb-4">Try changing your search keyword or filter category.</p>
       <button
         @click="resetFilters"
         class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition text-sm"
       >
-        Reset Filter
+        Reset Filters
       </button>
     </div>
 
@@ -108,11 +108,11 @@ onMounted(async () => {
           :disabled="currentPage === 1 || loading"
           class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
-          &larr; Sebelumnya
+          &larr; Previous
         </button>
 
         <span class="text-sm text-gray-700">
-          Halaman <strong class="font-semibold text-gray-900">{{ currentPage }}</strong> dari <strong class="font-semibold text-gray-900">{{ totalPages }}</strong>
+          Page <strong class="font-semibold text-gray-900">{{ currentPage }}</strong> of <strong class="font-semibold text-gray-900">{{ totalPages }}</strong>
         </span>
 
         <button
@@ -120,7 +120,7 @@ onMounted(async () => {
           :disabled="currentPage === totalPages || loading"
           class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
-          Berikutnya &rarr;
+          Next &rarr;
         </button>
       </div>
     </div>

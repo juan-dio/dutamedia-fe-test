@@ -58,7 +58,7 @@ onUnmounted(() => {
       type="text"
       :value="localValue"
       @input="handleInput"
-      placeholder="Cari produk..."
+      placeholder="Search products..."
       class="w-full pl-10 pr-10 py-2.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm"
     />
     <button
