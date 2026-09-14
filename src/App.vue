@@ -1,12 +1,16 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
     <!-- Header / Navbar -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <RouterLink to="/" class="text-xl font-bold text-emerald-600 hover:text-emerald-700">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <RouterLink
+          to="/"
+          class="text-xl font-bold text-emerald-600 hover:text-emerald-700"
+        >
           ProductStore
         </RouterLink>
 
