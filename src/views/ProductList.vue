@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { useProducts } from "../composables/useProducts";
 import ProductCard from "../components/product/ProductCard.vue";
 import SearchInput from "../components/product/SearchInput.vue";
@@ -23,6 +23,33 @@ const {
   setCategory,
   changePage,
 } = useProducts();
+
+const displayedPages = computed(() => {
+  const current = currentPage.value;
+  const total = totalPages.value;
+  const pages: (number | string)[] = [];
+
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      pages.push(i);
+    }
+  } else {
+    pages.push(1);
+    if (current > 3) {
+      pages.push("...");
+    }
+    const start = Math.max(2, current - 1);
+    const end = Math.min(total - 1, current + 1);
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    if (current < total - 2) {
+      pages.push("...");
+    }
+    pages.push(total);
+  }
+  return pages;
+});
 
 function resetFilters() {
   setSearch("");
@@ -134,12 +161,29 @@ onMounted(async () => {
           &larr; Previous
         </button>
 
-        <span class="text-sm text-gray-700">
-          Page
-          <strong class="font-semibold text-gray-900">{{ currentPage }}</strong>
-          of
-          <strong class="font-semibold text-gray-900">{{ totalPages }}</strong>
-        </span>
+        <div class="flex items-center gap-1 sm:gap-2">
+          <template v-for="(page, index) in displayedPages" :key="index">
+            <span
+              v-if="page === '...'"
+              class="px-3 py-1 text-gray-500 text-sm select-none"
+            >
+              ...
+            </span>
+            <button
+              v-else
+              @click="changePage(Number(page))"
+              :disabled="loading"
+              class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition cursor-pointer"
+              :class="
+                currentPage === page
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+              "
+            >
+              {{ page }}
+            </button>
+          </template>
+        </div>
 
         <button
           @click="changePage(currentPage + 1)"
