@@ -48,11 +48,10 @@ export interface GetProductsParams {
 
 export class ApiClientError extends Error {
   status: number;
-  override message: string;
+
   constructor(status: number, message: string) {
     super(message);
     this.name = 'ApiClientError';
     this.status = status;
-    this.message = message;
   }
 }
