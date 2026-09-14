@@ -54,7 +54,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col relative"
+    class="bg-white rounded-xl border border-gray-300 overflow-hidden flex flex-col relative"
   >
     <button
       @click="toggleFavorite"

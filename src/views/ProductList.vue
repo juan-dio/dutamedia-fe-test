@@ -143,7 +143,7 @@ onMounted(async () => {
       <!-- Pagination Controls -->
       <div
         v-if="totalPages > 1"
-        class="mt-12 flex items-center justify-between border-t border-gray-200 pt-6"
+        class="mt-12 flex items-center justify-between pt-6"
       >
         <button
           @click="changePage(currentPage - 1)"
