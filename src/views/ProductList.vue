@@ -156,16 +156,16 @@ onMounted(async () => {
         <button
           @click="changePage(currentPage - 1)"
           :disabled="currentPage === 1 || loading"
-          class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
+          class="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
-          &larr; Previous
+          <span class="inline">&larr;</span> <span class="hidden sm:inline">Previous</span>
         </button>
 
         <div class="flex items-center gap-1 sm:gap-2">
           <template v-for="(page, index) in displayedPages" :key="index">
             <span
               v-if="page === '...'"
-              class="px-3 py-1 text-gray-500 text-sm select-none"
+              class="px-2 sm:px-3 py-1 text-gray-500 text-sm select-none"
             >
               ...
             </span>
@@ -173,7 +173,7 @@ onMounted(async () => {
               v-else
               @click="changePage(Number(page))"
               :disabled="loading"
-              class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition cursor-pointer"
+              class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-sm font-medium transition cursor-pointer"
               :class="
                 currentPage === page
                   ? 'bg-emerald-600 text-white shadow-sm'
@@ -188,9 +188,9 @@ onMounted(async () => {
         <button
           @click="changePage(currentPage + 1)"
           :disabled="currentPage === totalPages || loading"
-          class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
+          class="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
-          Next &rarr;
+          <span class="hidden sm:inline">Next</span> <span class="inline">&rarr;</span>
         </button>
       </div>
     </div>
