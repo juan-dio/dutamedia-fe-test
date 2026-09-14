@@ -12,7 +12,6 @@ const {
   categories,
   loading,
   error,
-  total,
   currentPage,
   totalPages,
   searchQuery,
@@ -70,27 +69,20 @@ onMounted(async () => {
     </div>
 
     <!-- Filter & Search Bar -->
-    <div
-      class="flex flex-col md:flex-row gap-4 mb-8 justify-between items-center"
-    >
+    <div class="flex flex-col md:flex-row gap-4 mb-8 items-center">
       <div class="w-full md:w-96">
         <SearchInput
           :model-value="searchQuery"
           @update:model-value="setSearch"
         />
       </div>
-      <div
-        class="w-full md:w-auto flex items-center gap-4 justify-between md:justify-end"
-      >
+      <div class="w-full md:w-auto">
         <CategoryFilter
           :model-value="selectedCategory"
           :categories="categories"
           :disabled="loading"
           @update:model-value="setCategory"
         />
-        <span class="text-sm text-gray-500 whitespace-nowrap">
-          Total: <strong class="text-gray-900">{{ total }}</strong> products
-        </span>
       </div>
     </div>
 
@@ -158,7 +150,8 @@ onMounted(async () => {
           :disabled="currentPage === 1 || loading"
           class="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
-          <span class="inline">&larr;</span> <span class="hidden sm:inline">Previous</span>
+          <span class="inline">&larr;</span>
+          <span class="hidden sm:inline">Previous</span>
         </button>
 
         <div class="flex items-center gap-1 sm:gap-2">
@@ -190,7 +183,8 @@ onMounted(async () => {
           :disabled="currentPage === totalPages || loading"
           class="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
-          <span class="hidden sm:inline">Next</span> <span class="inline">&rarr;</span>
+          <span class="hidden sm:inline">Next</span>
+          <span class="inline">&rarr;</span>
         </button>
       </div>
     </div>

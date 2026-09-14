@@ -54,7 +54,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition group relative"
+    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col relative"
   >
     <button
       @click="toggleFavorite"
@@ -84,7 +84,7 @@ onMounted(() => {
       <img
         :src="product.thumbnail"
         :alt="product.title"
-        class="h-full w-full object-cover group-hover:scale-105 transition duration-300"
+        class="h-full w-full object-cover"
         @error="handleImageError"
       />
     </div>
