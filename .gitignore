@@ -24,6 +24,6 @@ dist-ssr
 
 # Superpowers & docs
 .superpowers
-docs/superpowers
+docs/
 AGENTS.md
 
