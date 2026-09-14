@@ -87,7 +87,7 @@ onMounted(() => {
 
     <div class="p-4 flex-1 flex flex-col justify-between">
       <div>
-        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full capitalize mb-2">
+        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold text-emerald-600 bg-emerald-50 rounded-full capitalize mb-2">
           {{ product.category }}
         </span>
         <h3 class="font-semibold text-gray-900 text-lg line-clamp-1 mb-1" :title="product.title">
@@ -111,7 +111,7 @@ onMounted(() => {
 
         <router-link
           :to="`/product/${product.id}`"
-          class="block w-full text-center py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition"
+          class="block w-full text-center py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition"
         >
           View Details
         </router-link>

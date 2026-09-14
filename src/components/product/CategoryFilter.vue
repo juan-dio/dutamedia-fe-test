@@ -23,7 +23,7 @@ function handleChange(event: Event) {
       :value="modelValue"
       @change="handleChange"
       :disabled="disabled"
-      class="w-full py-2.5 px-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 text-sm capitalize appearance-none cursor-pointer pr-8 disabled:bg-gray-100 disabled:cursor-not-allowed"
+      class="w-full py-2.5 px-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 text-sm capitalize appearance-none cursor-pointer pr-8 disabled:bg-gray-100 disabled:cursor-not-allowed"
     >
       <option value="">All Categories</option>
       <option

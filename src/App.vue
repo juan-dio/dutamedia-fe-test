@@ -1,24 +1,27 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
     <!-- Header / Navbar -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <RouterLink to="/" class="text-xl font-bold text-blue-600 hover:text-blue-700">
+        <RouterLink to="/" class="text-xl font-bold text-emerald-600 hover:text-emerald-700">
           ProductStore
         </RouterLink>
 
         <nav class="flex items-center space-x-6">
           <RouterLink
             to="/"
-            class="text-sm font-medium hover:text-blue-600 transition-colors"
-            active-class="text-blue-600 font-semibold"
+            class="text-sm font-medium hover:text-emerald-600 transition-colors"
+            active-class="text-emerald-600 font-semibold"
           >
             Products
           </RouterLink>
           <RouterLink
             to="/favorites"
-            class="text-sm font-medium hover:text-blue-600 transition-colors flex items-center space-x-1"
-            active-class="text-blue-600 font-semibold"
+            class="text-sm font-medium hover:text-emerald-600 transition-colors flex items-center space-x-1"
+            active-class="text-emerald-600 font-semibold"
           >
             <span>Favorites</span>
           </RouterLink>
@@ -39,6 +42,3 @@
     </footer>
   </div>
 </template>
-
-<script setup lang="ts">
-</script>

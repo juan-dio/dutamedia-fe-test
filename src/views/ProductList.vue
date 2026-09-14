@@ -85,7 +85,7 @@ onMounted(async () => {
       <p class="text-sm text-gray-500 mb-4">Try changing your search keyword or filter category.</p>
       <button
         @click="resetFilters"
-        class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition text-sm"
+        class="px-4 py-2 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition text-sm"
       >
         Reset Filters
       </button>
