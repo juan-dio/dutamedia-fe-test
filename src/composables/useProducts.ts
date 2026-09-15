@@ -1,11 +1,11 @@
-import { ref, computed } from 'vue';
-import type { Product, CategoryItem } from '../types/product';
+import { ref, computed } from "vue";
+import type { Product, CategoryItem } from "../types/product";
 import {
   getProducts,
   searchProducts,
   getCategories,
   getProductsByCategory,
-} from '../services/productService';
+} from "../services/productService";
 
 export function useProducts() {
   const products = ref<Product[]>([]);
@@ -15,8 +15,8 @@ export function useProducts() {
   const total = ref<number>(0);
   const currentPage = ref<number>(1);
   const limit = ref<number>(12);
-  const searchQuery = ref<string>('');
-  const selectedCategory = ref<string>('');
+  const searchQuery = ref<string>("");
+  const selectedCategory = ref<string>("");
 
   const totalPages = computed(() => Math.ceil(total.value / limit.value) || 1);
 
@@ -24,7 +24,7 @@ export function useProducts() {
     try {
       categories.value = await getCategories();
     } catch (err: any) {
-      console.error('Failed to load categories:', err);
+      console.error("Failed to load categories:", err);
     }
   }
 
@@ -56,7 +56,7 @@ export function useProducts() {
       products.value = response.products;
       total.value = response.total;
     } catch (err: any) {
-      error.value = err.message || 'Gagal memuat daftar produk.';
+      error.value = err.message || "Failed to load products.";
       products.value = [];
       total.value = 0;
     } finally {
@@ -67,7 +67,7 @@ export function useProducts() {
   function setSearch(query: string) {
     searchQuery.value = query;
     if (query) {
-      selectedCategory.value = '';
+      selectedCategory.value = "";
     }
     currentPage.value = 1;
     fetchProducts();
@@ -76,7 +76,7 @@ export function useProducts() {
   function setCategory(category: string) {
     selectedCategory.value = category;
     if (category) {
-      searchQuery.value = '';
+      searchQuery.value = "";
     }
     currentPage.value = 1;
     fetchProducts();
@@ -86,7 +86,7 @@ export function useProducts() {
     if (page >= 1 && page <= totalPages.value) {
       currentPage.value = page;
       fetchProducts();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 

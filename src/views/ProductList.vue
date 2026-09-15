@@ -100,7 +100,7 @@ onMounted(async () => {
     <!-- Empty State -->
     <div
       v-else-if="!loading && products.length === 0"
-      class="text-center py-16 bg-white rounded-xl border border-gray-100 shadow-sm"
+      class="text-center py-16 bg-white rounded-xl border border-gray-200"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
