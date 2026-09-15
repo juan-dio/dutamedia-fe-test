@@ -46,12 +46,17 @@ Aplikasi web e-commerce modern berbasis Vue 3 untuk menampilkan katalog produk, 
 
 ## Daftar Fitur yang Selesai
 
-- [x] Product List & Catalog Grid
-- [x] Search dengan Debounce
-- [x] Filter Kategori Produk
-- [x] Product Detail View
-- [x] Favorites Management dengan LocalStorage
-- [x] Loading Skeletons & Error Handling
+- Product List dengan Pagination
+- Search dengan Debounce
+- Filter Kategori Produk
+- Product Detail View
+- Favorites Management dengan LocalStorage
+- Loading Skeletons & Error Handling
+- Responsive Design
+
+## Daftar Fitur yang Belum Selesai
+
+- WebRTC P2P Chat
 
 ## Known Issues / Limitations
 
