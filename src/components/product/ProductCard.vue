@@ -130,7 +130,7 @@ onMounted(() => {
         </div>
 
         <router-link
-          :to="`/product/${product.id}`"
+          :to="`/products/${product.id}`"
           class="block w-full text-center py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition"
         >
           View Details
