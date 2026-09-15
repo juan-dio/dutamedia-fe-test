@@ -22,7 +22,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Superpowers & docs
+# Generated files
 .opencode
 .superpowers
 docs/

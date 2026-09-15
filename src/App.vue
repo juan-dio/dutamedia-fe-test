@@ -7,11 +7,8 @@
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
       >
-        <RouterLink
-          to="/"
-          class="text-xl font-bold text-emerald-600 hover:text-emerald-700"
-        >
-          ProductStore
+        <RouterLink to="/" class="text-xl font-bold text-emerald-600">
+          Product Browser
         </RouterLink>
 
         <nav class="flex items-center space-x-6">

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 animate-pulse">
+  <div class="bg-white rounded-xl border border-gray-300 p-4 animate-pulse">
     <div class="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
     <div class="h-4 bg-gray-200 rounded w-1/3 mb-2"></div>
     <div class="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>
@@ -11,5 +11,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
