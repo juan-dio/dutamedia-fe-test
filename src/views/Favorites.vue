@@ -1,48 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { onMounted } from "vue";
 import { useFavorites } from "../composables/useFavorites";
-import { getProductById } from "../services/productService";
-import type { Product } from "../types/product";
 import ProductCard from "../components/product/ProductCard.vue";
 import ProductSkeleton from "../components/common/ProductSkeleton.vue";
 import ErrorMessage from "../components/common/ErrorMessage.vue";
 
-const { favoriteIds, loadFavorites } = useFavorites();
-const products = ref<Product[]>([]);
-const loading = ref<boolean>(false);
-const error = ref<string | null>(null);
-
-watch(favoriteIds, (newIds) => {
-  products.value = products.value.filter((p) => newIds.includes(p.id));
-});
-
-async function fetchFavoriteProducts() {
-  loadFavorites();
-  if (favoriteIds.value.length === 0) {
-    products.value = [];
-    return;
-  }
-
-  loading.value = true;
-  error.value = null;
-
-  const fetched: Product[] = [];
-  try {
-    for (const id of favoriteIds.value) {
-      const product = await getProductById(id);
-      if (product) {
-        fetched.push(product);
-      }
-      await new Promise((resolve) => setTimeout(resolve, 300));
-    }
-    products.value = fetched;
-  } catch (err: any) {
-    error.value = err.message || "Failed to load favorite products.";
-    products.value = [];
-  } finally {
-    loading.value = false;
-  }
-}
+const {
+  favoriteIds,
+  products,
+  loading,
+  error,
+  fetchFavoriteProducts,
+} = useFavorites();
 
 onMounted(() => {
   fetchFavoriteProducts();

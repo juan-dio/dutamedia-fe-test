@@ -80,6 +80,7 @@ onMounted(() => {
 
 <template>
   <div class="w-full">
+    <!-- Back Button -->
     <div class="mb-6">
       <button
         @click="router.back()"
@@ -103,8 +104,10 @@ onMounted(() => {
       </button>
     </div>
 
+    <!-- Error State -->
     <ErrorMessage v-if="error" :message="error" @retry="loadData" />
 
+    <!-- Loading State -->
     <div
       v-else-if="loading && !product"
       class="bg-white rounded-xl border border-gray-300 p-6 md:p-8"
@@ -120,6 +123,7 @@ onMounted(() => {
       </div>
     </div>
 
+    <!-- Not Found State -->
     <div
       v-else-if="!loading && !product"
       class="text-center py-16 bg-white rounded-xl border border-gray-200"
@@ -136,6 +140,7 @@ onMounted(() => {
       </router-link>
     </div>
 
+    <!-- Success Detail Card -->
     <div
       v-else-if="product"
       class="bg-white rounded-xl border border-gray-300 p-6 md:p-8"
