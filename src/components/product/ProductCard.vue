@@ -1,55 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { computed } from "vue";
 import type { Product } from "../../types/product";
+import { useFavorites } from "../../composables/useFavorites";
 
 const props = defineProps<{
   product: Product;
 }>();
 
-const isFavorite = ref(false);
-
-function checkIsFavorite() {
-  const saved = localStorage.getItem("favorites");
-  if (saved) {
-    try {
-      const favs: number[] = JSON.parse(saved);
-      isFavorite.value = favs.includes(props.product.id);
-    } catch {
-      isFavorite.value = false;
-    }
-  }
-}
+const { isFavorite: checkIsFavorite, toggleFavorite: toggleFav } = useFavorites();
+const isFavorite = computed(() => checkIsFavorite(props.product.id));
 
 function toggleFavorite() {
-  const saved = localStorage.getItem("favorites");
-  let favs: number[] = [];
-  if (saved) {
-    try {
-      favs = JSON.parse(saved);
-    } catch {
-      favs = [];
-    }
-  }
-
-  if (isFavorite.value) {
-    favs = favs.filter((id) => id !== props.product.id);
-    isFavorite.value = false;
-  } else {
-    favs.push(props.product.id);
-    isFavorite.value = true;
-  }
-
-  localStorage.setItem("favorites", JSON.stringify(favs));
+  toggleFav(props.product.id);
 }
 
 function handleImageError(event: Event) {
   const target = event.target as HTMLImageElement;
   target.src = "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=600&q=80";
 }
-
-onMounted(() => {
-  checkIsFavorite();
-});
 </script>
 
 <template>

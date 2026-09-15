@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useProductDetail } from "../composables/useProductDetail";
+import { useFavorites } from "../composables/useFavorites";
 import ErrorMessage from "../components/common/ErrorMessage.vue";
 
 const route = useRoute();
 const router = useRouter();
 const { product, loading, error, fetchProduct } = useProductDetail();
+const { isFavorite: checkIsFavorite, toggleFavorite: toggleFav } =
+  useFavorites();
 
 const selectedImageIndex = ref<number>(0);
-const isFavorite = ref<boolean>(false);
+const isFavorite = computed(() =>
+  product.value ? checkIsFavorite(product.value.id) : false,
+);
 
 const currentImage = computed(() => {
   if (!product.value) return "";
@@ -39,40 +44,9 @@ const discountedPrice = computed(() => {
   }).format(discounted);
 });
 
-function checkIsFavorite() {
-  if (!product.value) return;
-  const saved = localStorage.getItem("favorites");
-  if (saved) {
-    try {
-      const favs: number[] = JSON.parse(saved);
-      isFavorite.value = favs.includes(product.value.id);
-    } catch {
-      isFavorite.value = false;
-    }
-  }
-}
-
 function toggleFavorite() {
   if (!product.value) return;
-  const saved = localStorage.getItem("favorites");
-  let favs: number[] = [];
-  if (saved) {
-    try {
-      favs = JSON.parse(saved);
-    } catch {
-      favs = [];
-    }
-  }
-
-  if (isFavorite.value) {
-    favs = favs.filter((id) => product.value && id !== product.value.id);
-    isFavorite.value = false;
-  } else {
-    favs.push(product.value.id);
-    isFavorite.value = true;
-  }
-
-  localStorage.setItem("favorites", JSON.stringify(favs));
+  toggleFav(product.value.id);
 }
 
 function handleImageError(event: Event) {
@@ -85,7 +59,6 @@ function loadData() {
   const id = route.params.id as string;
   if (id) {
     fetchProduct(id).then(() => {
-      checkIsFavorite();
       selectedImageIndex.value = 0;
     });
   }
