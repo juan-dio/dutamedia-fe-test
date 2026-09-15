@@ -77,7 +77,8 @@ function toggleFavorite() {
 
 function handleImageError(event: Event) {
   const target = event.target as HTMLImageElement;
-  target.src = "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=600&q=80";
+  target.src =
+    "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=600&q=80";
 }
 
 function loadData() {
@@ -86,7 +87,6 @@ function loadData() {
     fetchProduct(id).then(() => {
       checkIsFavorite();
       selectedImageIndex.value = 0;
-      console.log("Product: ", product.value);
     });
   }
 }
