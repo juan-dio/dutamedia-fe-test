@@ -148,7 +148,7 @@ onMounted(async () => {
         <button
           @click="changePage(currentPage - 1)"
           :disabled="currentPage === 1 || loading"
-          class="flex items-center justify-center px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
+          class="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
           <span class="inline">&larr;</span>
           <span class="hidden sm:inline">Previous</span>
@@ -181,7 +181,7 @@ onMounted(async () => {
         <button
           @click="changePage(currentPage + 1)"
           :disabled="currentPage === totalPages || loading"
-          class="flex items-center justify-center px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
+          class="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition"
         >
           <span class="hidden sm:inline">Next</span>
           <span class="inline">&rarr;</span>
