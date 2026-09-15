@@ -1,10 +1,10 @@
-import { ApiClientError } from '../types/product';
+import { ApiClientError } from "../types/product";
 
-const BASE_URL = 'https://dummyjson.com';
+const BASE_URL = "https://dummyjson.com";
 
 export async function apiGet<T>(
   path: string,
-  params?: Record<string, any>
+  params?: Record<string, any>,
 ): Promise<T> {
   const url = new URL(path, BASE_URL);
   if (params) {

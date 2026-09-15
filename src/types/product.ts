@@ -51,7 +51,7 @@ export class ApiClientError extends Error {
 
   constructor(status: number, message: string) {
     super(message);
-    this.name = 'ApiClientError';
+    this.name = "ApiClientError";
     this.status = status;
   }
 }

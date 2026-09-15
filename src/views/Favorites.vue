@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useFavorites } from "../composables/useFavorites";
-import ProductCard from "../components/product/ProductCard.vue";
-import ProductSkeleton from "../components/common/ProductSkeleton.vue";
-import ErrorMessage from "../components/common/ErrorMessage.vue";
+import ProductCard from "../components/ProductCard.vue";
+import ProductSkeleton from "../components/ProductSkeleton.vue";
+import ErrorMessage from "../components/ErrorMessage.vue";
 
-const {
-  favoriteIds,
-  products,
-  loading,
-  error,
-  fetchFavoriteProducts,
-} = useFavorites();
+const { favoriteIds, products, loading, error, fetchFavoriteProducts } =
+  useFavorites();
 
 onMounted(() => {
   fetchFavoriteProducts();

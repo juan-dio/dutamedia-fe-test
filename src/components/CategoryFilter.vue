@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CategoryItem } from '../../types/product';
+import type { CategoryItem } from '../types/product';
 
 defineProps<{
   modelValue: string;

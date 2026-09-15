@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Product } from "../../types/product";
-import { useFavorites } from "../../composables/useFavorites";
+import type { Product } from "../types/product";
+import { useFavorites } from "../composables/useFavorites";
 
 const props = defineProps<{
   product: Product;

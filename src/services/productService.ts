@@ -3,33 +3,33 @@ import type {
   ProductsResponse,
   CategoryItem,
   GetProductsParams,
-} from '../types/product';
-import { apiGet } from './apiClient';
+} from "../types/product";
+import { apiGet } from "./apiClient";
 
 export async function getProducts(
-  params?: GetProductsParams
+  params?: GetProductsParams,
 ): Promise<ProductsResponse> {
-  return apiGet<ProductsResponse>('/products', params);
+  return apiGet<ProductsResponse>("/products", params);
 }
 
 export async function searchProducts(
   query: string,
-  params?: GetProductsParams
+  params?: GetProductsParams,
 ): Promise<ProductsResponse> {
-  return apiGet<ProductsResponse>('/products/search', { q: query, ...params });
+  return apiGet<ProductsResponse>("/products/search", { q: query, ...params });
 }
 
 export async function getCategories(): Promise<CategoryItem[]> {
-  return apiGet<CategoryItem[]>('/products/categories');
+  return apiGet<CategoryItem[]>("/products/categories");
 }
 
 export async function getProductsByCategory(
   category: string,
-  params?: GetProductsParams
+  params?: GetProductsParams,
 ): Promise<ProductsResponse> {
   return apiGet<ProductsResponse>(
     `/products/category/${encodeURIComponent(category)}`,
-    params
+    params,
   );
 }
 

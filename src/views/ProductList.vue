@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onMounted, computed } from "vue";
 import { useProducts } from "../composables/useProducts";
-import ProductCard from "../components/product/ProductCard.vue";
-import SearchInput from "../components/product/SearchInput.vue";
-import CategoryFilter from "../components/product/CategoryFilter.vue";
-import ProductSkeleton from "../components/common/ProductSkeleton.vue";
-import ErrorMessage from "../components/common/ErrorMessage.vue";
+import ProductCard from "../components/ProductCard.vue";
+import SearchInput from "../components/SearchInput.vue";
+import CategoryFilter from "../components/CategoryFilter.vue";
+import ProductSkeleton from "../components/ProductSkeleton.vue";
+import ErrorMessage from "../components/ErrorMessage.vue";
 
 const {
   products,

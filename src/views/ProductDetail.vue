@@ -3,7 +3,7 @@ import { ref, computed, watch, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useProductDetail } from "../composables/useProductDetail";
 import { useFavorites } from "../composables/useFavorites";
-import ErrorMessage from "../components/common/ErrorMessage.vue";
+import ErrorMessage from "../components/ErrorMessage.vue";
 
 const route = useRoute();
 const router = useRouter();
