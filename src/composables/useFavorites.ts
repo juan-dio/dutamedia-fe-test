@@ -72,12 +72,10 @@ export function useFavorites() {
     }
   }
 
-  watch(
-    favoriteIds,
-    (newIds) => {
-      products.value = products.value.filter((p) => newIds.includes(p.id));
-    },
-  );
+  // Watch for changes in favoriteIds and update products accordingly
+  watch(favoriteIds, (newIds) => {
+    products.value = products.value.filter((p) => newIds.includes(p.id));
+  });
 
   return {
     favoriteIds,
